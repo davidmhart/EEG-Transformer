@@ -97,7 +97,10 @@ class MultiClusterDataset(Dataset):
 
         lf0 = torch.tensor(self.leadfield[:, c0], dtype=torch.float32)
         lf1 = torch.tensor(self.leadfield[:, c1], dtype=torch.float32)
-        lf = alpha * lf0 + (1.0 - alpha) * lf1
+        # Normalize so the dominant source is always at full amplitude.
+        # At alpha=0.5 this reduces to lf0 + lf1, matching the equal-strength baseline.
+        scale = 1.0 / max(alpha, 1.0 - alpha)
+        lf = scale * (alpha * lf0 + (1.0 - alpha) * lf1)
 
         if self.noise_vectors is None:
             if self.noise_mode == "per_source":
