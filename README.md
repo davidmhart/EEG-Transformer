@@ -1,6 +1,6 @@
 # EEG Source Localization with Transformers
 
-Official Implementation of *Transformer Networks Enable Robust Generalization of Source Localization for EEG Measurements*.  
+Official Implementation of *[Transformer networks are robust learners of source localization for EEG measurements](https://iopscience.iop.org/article/10.1088/1741-2552/aeb82c)*.  
 We train transformer networks to localize one or two simultaneously active EEG sources from scalp measurements, using a realistic head model (subject Ernie) and patch-based source spaces at 5 mm and 10 mm resolution.  The repository also contains the multi-source (multi-embedding) comparison against a single-heatmap top-k baseline, the unknown-source-count experiments, and the real-EEG experiments.
 
 ---
